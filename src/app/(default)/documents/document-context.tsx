@@ -1,24 +1,23 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { Transaction } from "./document-table";
 
-interface TransactionDetailContextProps {
-  transaction: Transaction | null;
-  setTransaction: (transaction: Transaction | null) => void;
+interface DocumentDetailContextProps {
+  Document: any | null;
+  setDocument: (Document: any | null) => void;
 }
 
-const TransactionDetailContext = createContext<TransactionDetailContextProps | undefined>(undefined);
+const DocumentDetailContext = createContext<DocumentDetailContextProps | undefined>(undefined);
 
 export const DocumentDetailProvider = ({ children }: { children: React.ReactNode }) => {
-  const [transaction, setTransaction] = useState<Transaction | null>(null);
-  return <TransactionDetailContext.Provider value={{ transaction, setTransaction }}>{children}</TransactionDetailContext.Provider>;
+  const [Document, setDocument] = useState<any | null>(null);
+  return <DocumentDetailContext.Provider value={{ Document, setDocument }}>{children}</DocumentDetailContext.Provider>;
 };
 
-export const useTransactionDetail = () => {
-  const context = useContext(TransactionDetailContext);
+export const useDocumentDetail = () => {
+  const context = useContext(DocumentDetailContext);
   if (!context) {
-    throw new Error("useTransaction must be used within a TransactionProvider");
+    throw new Error("useDocument must be used within a DocumentProvider");
   }
   return context;
 };

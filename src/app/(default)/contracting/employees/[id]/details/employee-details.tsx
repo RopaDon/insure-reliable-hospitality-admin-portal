@@ -1,35 +1,33 @@
 import Image from "next/image";
-import Hero from "@/components/hero";
-import Talks from "@/components/talks";
-import { Client } from "@/config/types";
-import Projects from "@/components/projects";
-import UpdateClientButton from "./update-client";
-import WidgetBook from "@/components/widget-book";
-import WidgetSponsor from "@/components/widget-sponsor";
+
+import { Client, Employee } from "@/config/types";
+
+import UpdateClientButton from "./update-employee";
+
 import BlankAvatar from "@/assets/images/blank_avatar.webp";
-import WidgetNewsletter from "@/components/widget-newsletter";
+
 import { QueryActionCreatorResult } from "@reduxjs/toolkit/dist/query/core/buildInitiate";
 
 type Props = {
-  client: Client;
+  employee: Employee;
   refetch(): QueryActionCreatorResult<any>;
 };
 
-export default function ClientDetails({ client, refetch }: Props) {
+export default function EmployeeDetails({ employee, refetch }: Props) {
   return (
     <div>
       <section>
         <div className="max-w-[700px]">
           <div className="pt-8 pb-10">
-            <Image className="rounded-full mb-5" src={client.displayPhoto ?? BlankAvatar} width={56} height={56} priority alt="Me" />
-            <h1 className="h1 font-aspekta mb-5">{client.name}</h1>
-            <p className="text-lg text-slate-500 dark:text-slate-400">{client.description}</p>
+            <Image className="rounded-full mb-5" src={employee.displayPhoto ?? BlankAvatar} width={56} height={56} priority alt="Me" />
+            <h1 className="h1 font-aspekta mb-5">{employee.firstName}</h1>
+            <p className="text-lg text-slate-500 dark:text-slate-400">{employee.dateOfBirth}</p>
           </div>
         </div>
       </section>
 
       <div className="flex justify-start mb-5">
-        <UpdateClientButton client={client} refetch={refetch} />
+        <UpdateClientButton employee={employee} refetch={refetch} />
       </div>
 
       <div className="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pb-16 md:pb-20">

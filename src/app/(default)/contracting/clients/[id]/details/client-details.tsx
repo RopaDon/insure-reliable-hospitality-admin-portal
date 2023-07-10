@@ -1,13 +1,7 @@
 import Image from "next/image";
-import Hero from "@/components/hero";
-import Talks from "@/components/talks";
 import { Client } from "@/config/types";
-import Projects from "@/components/projects";
 import UpdateClientButton from "./update-client";
-import WidgetBook from "@/components/widget-book";
-import WidgetSponsor from "@/components/widget-sponsor";
 import BlankAvatar from "@/assets/images/blank_avatar.webp";
-import WidgetNewsletter from "@/components/widget-newsletter";
 import { QueryActionCreatorResult } from "@reduxjs/toolkit/dist/query/core/buildInitiate";
 
 type Props = {

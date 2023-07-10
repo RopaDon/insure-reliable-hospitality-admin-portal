@@ -2,15 +2,15 @@
 
 import Center from "@/components/center";
 import { useParams } from "next/navigation";
-import ClientDetails from "./client-details";
+import EmployeeDetails from "./employee-details";
 import AppLoading from "@/components/app-loading";
 import ErrorDisplay from "@/components/error-display";
-import { useGetClientQuery } from "@/redux/slices/api/client-slice";
+import { useGetEmployeeQuery } from "@/redux/slices/api/employee-slice";
 
-export default function ClientDetailsProvider() {
+export default function EmployeeDetailsProvider() {
   const { id } = useParams();
 
-  const { data, isFetching, isSuccess, isError, refetch } = useGetClientQuery({ id });
+  const { data, isFetching, isSuccess, isError, refetch } = useGetEmployeeQuery({ id });
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function ClientDetailsProvider() {
             <ErrorDisplay />
           </Center>
         ))}
-      {!isError && !isFetching && isSuccess && data.success && <ClientDetails client={data.data} refetch={refetch} />}
+      {!isError && !isFetching && isSuccess && data.success && <EmployeeDetails employee={data.data} refetch={refetch} />}
     </>
   );
 }

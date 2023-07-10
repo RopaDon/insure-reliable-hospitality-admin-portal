@@ -17,6 +17,12 @@ export const employeeSlice = createApi({
         url: `/${BaseEndpoints.Employee}?${toQueryString(params)}`,
       }),
     }),
+    getEmployee: builder.query<ApiResult<Employee>, any>({
+      query: (params) => ({
+        method: ApiMethods.GET,
+        url: `/${BaseEndpoints.Employee}/${params.id}`,
+      }),
+    }),
     getEmployeeStatuses: builder.query<ApiResult<OptionSets[]>, Query>({
       query: (params) => ({
         method: ApiMethods.GET,
@@ -25,4 +31,4 @@ export const employeeSlice = createApi({
     }),
   }),
 });
-export const { useGetEmployeesQuery, useGetEmployeeStatusesQuery } = employeeSlice;
+export const { useGetEmployeesQuery, useGetEmployeeStatusesQuery, useGetEmployeeQuery } = employeeSlice;

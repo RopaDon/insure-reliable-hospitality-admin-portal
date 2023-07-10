@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Client } from "@/config/types";
-import ClientForm from "../../employee-form";
+import { Employee } from "@/config/types";
+import EmployeeForm from "../../employee-form";
 import { FormState } from "@/config/enums/enums";
 import ModalBasic from "@/components/modal-basic";
 import { QueryActionCreatorResult } from "@reduxjs/toolkit/dist/query/core/buildInitiate";
 
 type Props = {
-  client: Client;
+  employee: Employee;
   refetch(): QueryActionCreatorResult<any>;
 };
 
-export default function UpdateClientButton(props: Props) {
+export default function UpdateEmployeeButton(props: Props) {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const handleModalOpen = (value: boolean) => {
@@ -38,7 +38,7 @@ export default function UpdateClientButton(props: Props) {
       </button>
 
       <ModalBasic width="3/4" isOpen={modalOpen} setIsOpen={handleModalOpen} title="Update Client">
-        <ClientForm client={props.client} state={FormState.Update} handleClose={handleClose} refetch={props.refetch} />
+        <EmployeeForm employee={props.employee} state={FormState.Update} handleClose={handleClose} refetch={props.refetch} />
       </ModalBasic>
     </div>
   );

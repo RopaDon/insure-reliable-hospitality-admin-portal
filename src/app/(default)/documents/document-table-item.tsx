@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Document } from "@/config/types";
 import { useFlyoutContext } from "@/app/flyout-context";
-import { useTransactionDetail } from "./document-context";
+import { useDocumentDetail } from "./document-context";
 
 interface DocumentTableItemProps {
   document: Document;
@@ -12,7 +12,7 @@ interface DocumentTableItemProps {
 export default function DocumentTableItem({ document, onCheckboxChange, isSelected }: DocumentTableItemProps) {
   const { setFlyoutOpen } = useFlyoutContext();
 
-  const { setTransaction } = useTransactionDetail();
+  const { setDocument } = useDocumentDetail();
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onCheckboxChange(document.id, e.target.checked);
@@ -22,7 +22,7 @@ export default function DocumentTableItem({ document, onCheckboxChange, isSelect
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     setFlyoutOpen(true);
-    setTransaction(document);
+    setDocument(document);
   };
 
   return (

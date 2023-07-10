@@ -9,7 +9,9 @@ type Props = {
   onDateChange: (value: string) => void;
 };
 
-export default function Datepicker({ align, width = 300, onDateChange }: Props) {
+export default function Datepicker(props: Props) {
+  const { align, onDateChange, width = 300 } = props;
+
   const onReady: Hook = (selectedDates, dateStr, instance) => {
     (instance.element as HTMLInputElement).value = dateStr.replace("to", "-");
     const customClass = align ?? "";
