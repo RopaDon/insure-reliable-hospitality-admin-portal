@@ -86,3 +86,13 @@ export const getGreeting = () => {
     return "Good evening";
   }
 };
+
+export const getDomain = () => {
+  // if (process.env.NODE_ENV == "development") {
+  //   return process.env.NEXT_PUBLIC_DEV_API_URL;
+  // } else if (process.env.NODE_ENV == "production") {
+  //   return process.env.NEXT_PUBLIC_PROD_API_URL;
+  // }
+
+  return process.env.NEXT_PUBLIC_PROD_API_URL;
+};

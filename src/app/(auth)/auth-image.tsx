@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AuthBg from "@/assets/images/auth-image.jpg";
+import AuthBg from "@/assets/images/login-auth.png";
 import AuthDecoration from "@/assets/images/auth-decoration.png";
 
 export default function AuthImage() {

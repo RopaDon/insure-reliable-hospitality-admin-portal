@@ -16,6 +16,7 @@ export enum AdminRole {
 export enum BaseEndpoints {
   Job = "jobs",
   Auth = "auth",
+  Staff = "staff",
   Clients = "clients",
   Service = "service",
   Finance = "finances",

@@ -15,6 +15,7 @@ import { FLUSH, PAUSE, PURGE, PERSIST, REGISTER, REHYDRATE } from "redux-persist
 import { waitlistSlice } from "../slices/api/waitlist-slice";
 import { financeSlice } from "../slices/api/finance-slice";
 import { integrationSlice } from "../slices/api/integration-slice";
+import { staffSlice } from "../slices/api/staff-slice";
 
 const store: Store<RootState, any> & {
   dispatch: any;
@@ -27,7 +28,9 @@ const store: Store<RootState, any> & {
       },
     }).concat([
       thunk,
+
       jobSlice.middleware,
+      staffSlice.middleware,
       clientSlice.middleware,
       serviceSlice.middleware,
       financeSlice.middleware,

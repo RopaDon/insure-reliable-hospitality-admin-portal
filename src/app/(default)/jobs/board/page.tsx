@@ -12,19 +12,7 @@ import PaginationNumeric from "@/components/pagination-numeric";
 
 export default function Jobs() {
   // Some dummy jobs data
-  const jobs = [
-    {
-      id: 0,
-      image: Image02,
-      company: "Company 01",
-      role: "Front Desk",
-      link: "/jobs/post",
-      details: "Contract / On-Site / Florida",
-      date: "Jan 4",
-      type: "Featured",
-      fav: false,
-    },
-  ];
+  const jobs: any[] = [];
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[96rem] mx-auto">
@@ -73,7 +61,7 @@ export default function Jobs() {
 
           {/* Jobs header */}
           <div className="flex justify-between items-center mb-4">
-            <div className="text-sm text-slate-500 dark:text-slate-400 italic">Showing 289 Jobs</div>
+            {/* <div className="text-sm text-slate-500 dark:text-slate-400 italic">Showing 289 Jobs</div> */}
             {/* Sort */}
             <div className="text-sm">
               <span>Sort by </span>

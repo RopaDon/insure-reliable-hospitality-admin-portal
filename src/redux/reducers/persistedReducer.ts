@@ -14,6 +14,7 @@ import { authenticationSlice } from "../slices/api/auth-slice";
 import { waitlistSlice } from "../slices/api/waitlist-slice";
 import { financeSlice } from "../slices/api/finance-slice";
 import { integrationSlice } from "../slices/api/integration-slice";
+import { staffSlice } from "../slices/api/staff-slice";
 
 const persistanceConfiguartion: PersistConfig<any, any, any> = {
   key: "persist",
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   [authSlice.name]: authSlice.reducer,
   [jobSlice.reducerPath]: jobSlice.reducer,
   [loadingSlice.name]: loadingSlice.reducer,
+  [staffSlice.reducerPath]: staffSlice.reducer,
   [clientSlice.reducerPath]: clientSlice.reducer,
   [serviceSlice.reducerPath]: serviceSlice.reducer,
   [financeSlice.reducerPath]: financeSlice.reducer,
