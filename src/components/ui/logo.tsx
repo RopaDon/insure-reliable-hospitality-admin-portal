@@ -8,9 +8,5 @@ type Props = {
 };
 
 export default function Logo({ isLight = false }: Props) {
-  return (
-    <Link className="block" href="/">
-      <Image src={isLight ? LogoWhite : LogoDark} width={35} height={32} alt="Avatar 03" />
-    </Link>
-  );
+  return <Image src={isLight ? LogoWhite : LogoDark} width={35} height={32} alt="Avatar 03" />;
 }
