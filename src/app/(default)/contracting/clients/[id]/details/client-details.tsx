@@ -1,0 +1,72 @@
+import Image from "next/image";
+import Hero from "@/components/hero";
+import Talks from "@/components/talks";
+import { Client } from "@/config/types";
+import Projects from "@/components/projects";
+import UpdateClientButton from "./update-client";
+import WidgetBook from "@/components/widget-book";
+import WidgetSponsor from "@/components/widget-sponsor";
+import BlankAvatar from "@/assets/images/blank_avatar.webp";
+import WidgetNewsletter from "@/components/widget-newsletter";
+import { QueryActionCreatorResult } from "@reduxjs/toolkit/dist/query/core/buildInitiate";
+
+type Props = {
+  client: Client;
+  refetch(): QueryActionCreatorResult<any>;
+};
+
+export default function ClientDetails({ client, refetch }: Props) {
+  return (
+    <div>
+      <section>
+        <div className="max-w-[700px]">
+          <div className="pt-8 pb-10">
+            <Image className="rounded-full mb-5" src={client.displayPhoto ?? BlankAvatar} width={56} height={56} priority alt="Me" />
+            <h1 className="h1 font-aspekta mb-5">{client.name}</h1>
+            <p className="text-lg text-slate-500 dark:text-slate-400">{client.description}</p>
+          </div>
+        </div>
+      </section>
+
+      <div className="flex justify-start mb-5">
+        <UpdateClientButton client={client} refetch={refetch} />
+      </div>
+
+      <div className="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pb-16 md:pb-20">
+        {/* Middle area */}
+        <div className="grow">
+          <div className="max-w-[700px]">
+            <div className="space-y-10">
+              <section>
+                <ul className="flex flex-wrap text-sm border-b border-slate-100 dark:border-slate-800">
+                  <li className="px-3 -mb-px">
+                    <a className="block py-3 font-medium text-slate-800 dark:text-slate-100 border-b-2 border-sky-500" href="#0">
+                      Information
+                    </a>
+                  </li>
+                  <li className="px-3 -mb-px">
+                    <a className="block py-3 text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300" href="#0">
+                      Employees
+                    </a>
+                  </li>
+                </ul>
+              </section>
+
+              {/* <Talks />
+              <Projects /> */}
+            </div>
+          </div>
+        </div>
+
+        {/* Right sidebar */}
+        <aside className="md:w-[240px] lg:w-[300px] shrink-0 border-r border-slate-200 dark:border-slate-800 md:h-[240px] lg:h-[500px]">
+          <div className="space-y-6">
+            <div />
+            <div />
+            <div />
+          </div>
+        </aside>
+      </div>
+    </div>
+  );
+}
